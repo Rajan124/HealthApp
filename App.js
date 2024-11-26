@@ -13,6 +13,7 @@ import AddPatientScreen from './screens/AddPatientScreen';
 import PatientDetailsScreen from './screens/PatientDetailsScreen';
 import AddTestScreen from './screens/AddTestScreen';
 import EditPatientsScreen from './screens/EditPatientScreen';
+import DeletePatientScreen from './screens/deletePatientScreen';
 import PatientHistoryScreen from './screens/PatientHistoryScreen';
 import CriticalPatientsScreen from './screens/CriticalPatientsScreen';
 import Login from './screens/Login';
@@ -75,6 +76,7 @@ export default function App() {
           <Stack.Screen name="PatientDetails" component={PatientDetailsScreen} options={{ title: 'Patient Details' }} />
           <Stack.Screen name="AddTest" component={AddTestScreen} options={{ title: 'Add Test' }} />
           <Stack.Screen name="EditPatient" component={EditPatientsScreen} options={{title: 'Edit patient'}} />
+          <Stack.Screen name="deletePatient" component={DeletePatientScreen} options={{title: 'delete patient'}} />
           <Stack.Screen name="PatientHistory" component={PatientHistoryScreen} options={{ title: 'Patient History' }} />
 
         </Stack.Navigator>

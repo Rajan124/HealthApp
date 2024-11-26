@@ -87,6 +87,14 @@ export default function PatientDetailsScreen({ route, navigation }) {
           >
             <Text style={styles.editButtonText}>Edit Profile</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.editButton}
+            onPress={() => navigation.navigate('deletePatient', { patientId })}
+          >
+            <Text style={styles.editButtonText}>Delete patient</Text>
+          </TouchableOpacity>
+
         </View>
       )}
       <View style={styles.testsContainer}>
