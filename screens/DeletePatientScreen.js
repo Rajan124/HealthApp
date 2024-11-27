@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import axios from 'axios';
-import PatientsListScreen from './PatientsListScreen';
 
 export default function DeletePatientScreen({ route, navigation }) {
   const { patientId } = route.params; // Get the patient ID from route params
@@ -27,10 +26,10 @@ export default function DeletePatientScreen({ route, navigation }) {
     try {
       const response = await axios.delete(`http://10.0.2.2:5000/api/patients/${patientId}`);
       Alert.alert('Success', 'Patient deleted successfully');
-      navigation.replace('PatientsListScreen'); // Navigate back to patientList after deletion
+      navigation.navigate('PatientsList');
     } catch (error) {
       console.error('Error deleting patient:', error);
-      //Alert.alert('Error', 'Failed to delete patient');
+      Alert.alert('Error', 'Failed to delete patient');
     }
   };
 

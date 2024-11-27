@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Picker } from '@react-native-picker/picker';
 import axios from 'axios';
+
 export default function AddPatientScreen({ navigation }) {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
@@ -10,6 +11,15 @@ export default function AddPatientScreen({ navigation }) {
   const [address, setAddress] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [medicalHistory, setMedicalHistory] = useState('');
+  const [isPatientAdded, setIsPatientAdded] = useState(false); // Track if patient is added
+
+  // useEffect to handle navigation or other actions after patient is added
+  useEffect(() => {
+    if (isPatientAdded) {
+      Alert.alert('Success', 'Patient added successfully');
+      navigation.navigate('PatientsList'); // Navigate to PatientsList after addition
+    }
+  }, [isPatientAdded, navigation]); // Dependency on `isPatientAdded` and `navigation`
 
   // Function to handle adding a new patient
   const handleAddPatient = async () => {
@@ -27,8 +37,9 @@ export default function AddPatientScreen({ navigation }) {
         phoneNumber,
         medicalHistory: medicalHistory.split(',').map(item => item.trim()),
       });
-      Alert.alert('Success', 'Patient added successfully');
-      navigation.navigate('PatientsList');
+
+      // Set state to trigger useEffect
+      setIsPatientAdded(true);
     } catch (error) {
       console.error('Error adding patient:', error);
       Alert.alert('Error', 'Failed to add patient');
