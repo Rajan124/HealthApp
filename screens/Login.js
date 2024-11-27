@@ -10,7 +10,14 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 
 function Login({ navigation }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleLogin = () => {
+    if (email !== "test" || password !== "test") {
+      alert("Invalid login credentials");
+      return;
+    }
     navigation.navigate("Main");
   };
 
@@ -77,6 +84,8 @@ function Login({ navigation }) {
                 shadowRadius: 10,
               },
             ]}
+            value={email}
+            onChangeText={setEmail}
           />
           <TextInput
             // onFocus={() => setFocused(true)}
@@ -103,6 +112,8 @@ function Login({ navigation }) {
                 shadowRadius: 10,
               },
             ]}
+            value={password}
+            onChangeText={setPassword}
           />
         </View>
 
@@ -148,9 +159,6 @@ function Login({ navigation }) {
         </TouchableOpacity>
         <TouchableOpacity
           // onPress={() => navigate("Register")}
-          style={{
-            padding: 10,
-          }}
         >
           <Text
             style={{
