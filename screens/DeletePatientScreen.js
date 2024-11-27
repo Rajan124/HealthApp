@@ -27,7 +27,7 @@ export default function DeletePatientScreen({ route, navigation }) {
     try {
       const response = await axios.delete(`http://10.0.2.2:5000/api/patients/${patientId}`);
       Alert.alert('Success', 'Patient deleted successfully');
-      navigation.navigate('PatientListScreen'); // Navigate back to patientList after deletion
+      navigation.replace('PatientsListScreen'); // Navigate back to patientList after deletion
     } catch (error) {
       console.error('Error deleting patient:', error);
       //Alert.alert('Error', 'Failed to delete patient');

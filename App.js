@@ -13,7 +13,7 @@ import AddPatientScreen from './screens/AddPatientScreen';
 import PatientDetailsScreen from './screens/PatientDetailsScreen';
 import AddTestScreen from './screens/AddTestScreen';
 import EditPatientsScreen from './screens/EditPatientScreen';
-import DeletePatientScreen from './screens/deletePatientScreen';
+import DeletePatientScreen from './screens/DeletePatientScreen';
 import PatientHistoryScreen from './screens/PatientHistoryScreen';
 import CriticalPatientsScreen from './screens/CriticalPatientsScreen';
 import Login from './screens/Login';
